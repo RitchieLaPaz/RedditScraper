@@ -1,0 +1,21 @@
+services:
+  - type: cron
+    name: repupilot-reddit-scanner
+    env: node
+    plan: free
+    schedule: "0 */2 * * *"
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: REDDIT_RSS_USER
+        sync: false
+      - key: REDDIT_RSS_TOKEN
+        sync: false
+      - key: SCANNER_WEBHOOK_KEY
+        sync: false
+      - key: REPUPILOT_WEBHOOK_URL
+        sync: false
