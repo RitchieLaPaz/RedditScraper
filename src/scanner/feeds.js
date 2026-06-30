@@ -1,5 +1,5 @@
 /**
- * RSS feed registry — 22 feeds
+ * RSS feed registry — 29 feeds
  * Subreddits + brand keyword searches for Eaze, Green Dragon, Fluent
  */
 const BASE = 'https://www.reddit.com';
@@ -10,7 +10,10 @@ const token = () => {
 };
 
 module.exports = [
-  // ── Subreddits ────────────────────────────────────────────────────────
+  // ── Brand-specific subreddit (Critical priority) ──────────────────────
+  { id: 'r_eaze',            url: () => `${BASE}/r/Eaze/new.rss${token()}`,            type: 'subreddit', brand: 'eaze' },
+
+  // ── General cannabis subreddits ────────────────────────────────────────
   { id: 'r_weed',            url: () => `${BASE}/r/weed/new.rss${token()}`,            type: 'subreddit' },
   { id: 'r_trees',           url: () => `${BASE}/r/trees/new.rss${token()}`,           type: 'subreddit' },
   { id: 'r_cannabis',        url: () => `${BASE}/r/cannabis/new.rss${token()}`,        type: 'subreddit' },
@@ -19,10 +22,20 @@ module.exports = [
   { id: 'r_hempflowers',     url: () => `${BASE}/r/hempflowers/new.rss${token()}`,    type: 'subreddit' },
   { id: 'r_cannabisculture', url: () => `${BASE}/r/CannabisCulture/new.rss${token()}`,type: 'subreddit' },
   { id: 'r_saplings',        url: () => `${BASE}/r/saplings/new.rss${token()}`,        type: 'subreddit' },
+
+  // ── Geo subreddits ──────────────────────────────────────────────────────
   { id: 'r_losangeles',      url: () => `${BASE}/r/LosAngeles/new.rss${token()}`,      type: 'subreddit' },
   { id: 'r_california',      url: () => `${BASE}/r/California/new.rss${token()}`,      type: 'subreddit' },
   { id: 'r_florida',         url: () => `${BASE}/r/florida/new.rss${token()}`,         type: 'subreddit' },
   { id: 'r_colorado',        url: () => `${BASE}/r/Colorado/new.rss${token()}`,        type: 'subreddit' },
+  { id: 'r_floridamarijuana',url: () => `${BASE}/r/floridamarijuana/new.rss${token()}`,type: 'subreddit', brand: 'fluent' },
+  { id: 'r_flmedicaltrees',  url: () => `${BASE}/r/FLMedicalTrees/new.rss${token()}`,  type: 'subreddit', brand: 'fluent' },
+  { id: 'r_nycmarijuana',    url: () => `${BASE}/r/NYCmarijuana/new.rss${token()}`,    type: 'subreddit' },
+  { id: 'r_nycweed',         url: () => `${BASE}/r/nycweed/new.rss${token()}`,         type: 'subreddit' },
+  { id: 'r_nys_cannabis',    url: () => `${BASE}/r/nys_cannabis/new.rss${token()}`,    type: 'subreddit' },
+  { id: 'r_texasmedicalcannabis', url: () => `${BASE}/r/TexasMedicalCannabis/new.rss${token()}`, type: 'subreddit' },
+
+  // ── Business subreddits ─────────────────────────────────────────────────
   { id: 'r_entrepreneur',    url: () => `${BASE}/r/Entrepreneur/new.rss${token()}`,    type: 'subreddit' },
   { id: 'r_smallbusiness',   url: () => `${BASE}/r/smallbusiness/new.rss${token()}`,  type: 'subreddit' },
 
